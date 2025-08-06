@@ -55,8 +55,11 @@ src/
 
 ## 📸 Screenshots
 
-### 🏠 Home Page
-![Home Page](./screenshots/home.png)
+### 🏠 Home Page with Filters
+![Home Page](./src/screenshort/HomePagewithFilter.png)
 
-### 🛒 Cart Page
-![Cart Page](./screenshots/cart.png)
+### 🛒 Home Page with Cart Items
+![Home With Cart](./src/screenshort/HomeWithCartList.png)
+
+### 📋 Cart Page
+![Cart List](./src/screenshort/CartList.png)
