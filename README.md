@@ -43,8 +43,9 @@ src/
 ├── router/
 │ └── AllRoutes.jsx
 ├── screenshots/
-│ ├── home.png
-│ └── cart.png
+│ ├── CartList.png
+│ ├── HomePagewithFilter.pgn
+│ └── HomeWithCartList.png
 ├── store/
 │ ├── cartSlice.js
 │ ├── filterSlice.js
