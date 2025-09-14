@@ -3,7 +3,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { AiFillDelete } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { goToCart, removeCart } from '../../store/cartSlice'
+import { removeCart } from '../../store/cartSlice'
 
 function CartDropdown() {
     const cartList = useSelector((state) => state.cartState.cartList)
