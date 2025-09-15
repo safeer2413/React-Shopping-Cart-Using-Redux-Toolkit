@@ -25,11 +25,6 @@ const cartSlices = createSlice({
             return { ...state, cartList: updatedCart, total: totalPrice }
         },
 
-        // addPrice(state, action) {
-        //     const totalPrice = state.total + action.payload.price * action.payload.qty
-        //     return { ...state, total: totalPrice }
-        // }
-
         addPrice(state, action) {
             const { id, qty } = action.payload;
 
