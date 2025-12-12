@@ -2,8 +2,9 @@ import { useTitle } from '../hooks/useTitle';
 import ProductCard from '../components/ProductCard';
 import products from '../data/products';
 import Filter from '../components/Filter';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdProductionQuantityLimits } from "react-icons/md";
+import { filterToggle } from '../store/filterSlice';
 
 function Home() {
 
@@ -11,6 +12,7 @@ function Home() {
 
     const filterVisible = useSelector((state) => state.filterState.filterShow)
     const filterState = useSelector(state => state.filterState);
+    const dispatch = useDispatch();
 
     const filteredProducts = products
         .filter(prod => filterState.byStock ? prod.inStock : true)
@@ -29,14 +31,23 @@ function Home() {
         <main>
             <section className="container-fluid">
                 <div className="row position-relative">
-                    {/* Filter Section (always mounted, but animated using CSS) */}
-                    <div className={`filter-wrapper col-lg-3  col-sm-4 ${filterVisible ? 'show' : 'hide'}`}>
-                        <Filter />
+
+                    {/* BACKGROUND OVERLAY */}
+                    {filterVisible && (
+                        <div
+                            className="overlay-bg"
+                            onClick={() => dispatch(filterToggle())}
+                        ></div>
+                    )}
+
+                    {/* Filter Section */}
+                    <div className={`filter-wrapper position-fixed ${filterVisible ? "show" : "hide"}`}>
+                        <Filter onApply={() => dispatch(filterToggle())} />
                     </div>
 
-                    {/* Product Section adjusts width based on filterVisible */}
+                    {/* PRODUCTS SECTION */}
                     {filteredProducts.length === 0 ? (
-                        <div className={`${filterVisible ? 'col-lg-9 col-sm-8' : 'col-12'} d-flex justify-content-center align-items-center`} style={{ minHeight: "90vh" }}>
+                        <div className={`col-12 d-flex justify-content-center align-items-center`} style={{ minHeight: "90vh" }}>
                             <div className="text-center p-4 border rounded shadow-sm" style={{ maxWidth: "350px" }}>
                                 <MdProductionQuantityLimits size={60} className="mb-3 text-muted" />
                                 <h5 className="fw-bold text-muted">No Products Found</h5>
@@ -44,14 +55,11 @@ function Home() {
                             </div>
                         </div>
                     ) : (
-                        <div className={`${filterVisible ? 'col-lg-9 col-sm-8' : 'col-12'}`}>
+                        <div className="col-12">
                             <div className="row">
                                 {filteredProducts.map((product) => (
                                     <div
-                                        className={`${filterVisible
-                                            ? 'col-lg-4 col-sm-6 mb-4'
-                                            : 'col-lg-3 col-md-4 col-sm-6 mb-4'
-                                            }`}
+                                        className="col-lg-3 col-md-4 col-sm-6 mb-4"
                                         key={product.id}
                                     >
                                         <ProductCard product={product} />

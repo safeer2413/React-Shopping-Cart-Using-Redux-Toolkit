@@ -13,9 +13,11 @@ function Cart() {
   return (
     <main className='py-4'>
       <Container>
-        <h2 className='mt-1 text-center sticky-price'>
+        <div className='mt-0 bg-success border border-dark border-2 rounded-3 p-2 position-fixed z-3'>
+          <h2 className='mt-1 text-center sticky-price'>
           Cart Items ({cartList.length}) — Total: ${total}
         </h2>
+        </div>
 
         {cartList.length > 0 ? (
           <CartCard />

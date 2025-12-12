@@ -16,40 +16,45 @@
   margin: 0 15px;
 }
 
-.filter-wrapper {
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  position: relative;
-  z-index: 10;
-}
-
-.filter-wrapper.hide {
-  transform: translateX(-100%);
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
+/* FULLSCREEN BLUR BACKGROUND */
+.overlay-bg {
+  position: fixed;
+  top: 0px;
   left: 0;
-  top: 0;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 9;
 }
 
-.filter-wrapper.show {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: auto;
-  position: relative;
-}
-
-
-.filters {
+/* FILTER PANEL (fixed overlay) */
+.filter-wrapper {
+  width: 300px !important;        /* Fixed width – prevents shifting */
+  height: auto;
   background-color: #3c5771;
   color: white;
-  padding: 10px;
+  padding: 15px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+  overflow-y: auto;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Hidden state */
+.filter-wrapper.hide {
+  transform: translateX(-100%);
+}
+
+/* Visible state */
+.filter-wrapper.show {
+  transform: translateX(0);
+}
+
+/* Filter inner styles */
+.filters {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin:15px 15px 0 0;
-  height: 80vh;
-  border-radius: 3%;
 }
 
 .filters span, strong {
@@ -57,16 +62,16 @@
 }
 
 .filters button {
-  margin-top: 30px;
-
+  margin-top: 20px;
+  width: auto;
+  display: inline-block;
 }
 
 .title {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 /* Dropdown Cart List */
-
 .dropdown-toggle {
   margin-left: auto !important;
   display: flex !important;
@@ -161,5 +166,3 @@
   font-size: 1.2rem;
   margin-right: 2px;
 }
-
-/* ==================================== */

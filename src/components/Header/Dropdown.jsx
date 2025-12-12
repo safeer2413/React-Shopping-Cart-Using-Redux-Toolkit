@@ -10,7 +10,7 @@ function CartDropdown() {
     const dispatch = useDispatch()
 
     return (
-        <Dropdown align="end" className="mt-md-0 mt-3">
+        <Dropdown align="end" className="mt-md-5 mt-3">
             <Dropdown.Toggle variant="success" className="d-flex align-items-center">
                 <FaShoppingCart fontSize="20px" />
                 <Badge bg="light" text="dark" className="ms-2">

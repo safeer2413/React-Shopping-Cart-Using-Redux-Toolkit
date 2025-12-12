@@ -1,0 +1,96 @@
+.auth-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 60px auto;
+  padding: 30px 35px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.auth-container h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-container input {
+  padding: 12px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.auth-container input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+.auth-container button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out;
+}
+
+.auth-container button:hover {
+  background: #0056b3;
+}
+
+.auth-container p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
+}
+
+/* Smooth fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 450px) {
+  .auth-container {
+    margin: 30px 15px;
+    padding: 25px;
+  }
+}
+
+.switch-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #444;
+}
+
+.switch-link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.switch-link:hover {
+  text-decoration: underline;
+}
