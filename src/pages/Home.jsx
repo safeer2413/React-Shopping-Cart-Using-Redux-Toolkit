@@ -29,7 +29,7 @@ function Home() {
     return (
 
         <main>
-            <section className="container-fluid">
+            <section className="container-fluid bg-warning">
                 <div className="row position-relative">
 
                     {/* BACKGROUND OVERLAY */}

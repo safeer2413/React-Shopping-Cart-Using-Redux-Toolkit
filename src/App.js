@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <ToastContainer position="bottom-right" autoClose={2000} />
+        <ToastContainer position="bottom-right" autoClose={2000} limit={3} theme="colo" />
         <Header />
         <AllRouter />
       </div>

@@ -13,16 +13,27 @@ function Cart() {
   return (
     <main className='py-4'>
       <Container>
-        <div className='mt-0 bg-success border border-dark border-2 rounded-3 p-2 position-fixed z-3'>
-          <h2 className='mt-1 text-center sticky-price'>
-          Cart Items ({cartList.length}) — Total: ${total}
-        </h2>
+
+        {/* Cart Heading SAME width as CartCard */}
+        <div className="row sticky-cart-header">
+          <div className="col-lg-9 col-md-10 col-sm-12 mx-auto">
+            <div className="bg-success text-white  border border-dark border-2 rounded-3 p-3 mb-3">
+              <h4 className="text-center fw-bold m-0">
+                Cart Items ({cartList.length}) — Total: ${total}
+              </h4>
+            </div>
+          </div>
         </div>
 
+        {/* Cart Items */}
         {cartList.length > 0 ? (
-          <CartCard />
+          <div className="row">
+            <div className="col-lg-9 col-md-10 col-sm-12 mx-auto">
+              <CartCard />
+            </div>
+          </div>
         ) : (
-          <div className="text-center mt-5">
+          <div className="text-center mt-5 ">
             <img
               src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
               alt="Empty Cart"
@@ -32,8 +43,10 @@ function Cart() {
             <p>Looks like you haven't added anything to your cart yet.</p>
           </div>
         )}
+
       </Container>
     </main>
+
   )
 }
 

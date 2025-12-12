@@ -8,10 +8,10 @@ function CartCard() {
   const cartList = useSelector((state) => state.cartState.cartList)
 
   return (
-    <Row className="gy-4">
+    <Row className="gy-4 bg-warning shadow-lg p-4 rounded-4">
       {cartList.map((product) => (
         <Col xs={12} key={product.id}>
-          <Card className="shadow-sm p-3">
+          <Card className="shadow rounded-4 hover-card p-3">
             <Row className="align-items-center">
 
               {/* Image */}
@@ -49,17 +49,16 @@ function CartCard() {
                       dispatch(
                         addPrice({
                           id: product.id,
-                          qty: Number(e.target.value),
+                          qty: parseInt(e.target.value, 10) || 1,   // Prevents NaN
                         })
                       )
                     }
-                    style={{
-                      width: '70px',
-                      cursor: 'pointer',
-                    }}
+                    style={{ width: '70px', cursor: 'pointer' }}
                   >
                     {[...Array(product.inStock).keys()].map((x) => (
-                      <option key={x + 1}>{x + 1}</option>
+                      <option key={x + 1} value={x + 1}>
+                        {x + 1}
+                      </option>
                     ))}
                   </Form.Select>
 

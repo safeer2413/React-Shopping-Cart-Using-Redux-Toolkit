@@ -28,11 +28,11 @@ A responsive shopping cart application built with **React**, **Redux Toolkit**, 
 
 src/
 ├── components/
-│ ├── Header/
-│ ├── CartCard.jsx
-│ ├── Filter.jsx
-│ ├── ProductCard.jsx
-│ └── Rating.jsx
+│ └── Header/ 
+│   ├── CartCard.jsx
+│   ├── Filter.jsx
+│   ├── ProductCard.jsx
+│   └── Rating.jsx
 ├── data/
 │ └── products.js
 ├── hooks/
@@ -43,9 +43,10 @@ src/
 ├── router/
 │ └── AllRoutes.jsx
 ├── screenshots/
-│ ├── CartList.png
-│ ├── HomePagewithFilter.pgn
-│ └── HomeWithCartList.png
+│ ├── CartListOnly.png
+│ ├── HomePage.png
+│ ├── HomeWithCart.png
+│ └── HomeWithFilter.png
 ├── store/
 │ ├── cartSlice.js
 │ ├── filterSlice.js

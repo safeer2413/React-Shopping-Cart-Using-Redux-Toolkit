@@ -1,168 +1,102 @@
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #EEEEEE;
-}
-
-.logo img {
-  max-width: 40px;
-  margin-right: 5px;
-  border-radius: 50%;
-}
-
-.search {
-  flex-grow: 1;
-  margin: 0 15px;
-}
-
-/* FULLSCREEN BLUR BACKGROUND */
 .overlay-bg {
   position: fixed;
-  top: 0px;
-  left: 0;
+  inset: 0;
+  /* top:0, left:0, right:0, bottom:0 */
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   z-index: 9;
 }
 
-/* FILTER PANEL (fixed overlay) */
 .filter-wrapper {
-  width: 300px !important;        /* Fixed width – prevents shifting */
-  height: auto;
-  background-color: #3c5771;
+  width: 300px !important;
+  background: #3c5771;
   color: white;
   padding: 15px;
-  transition: transform 0.3s ease-in-out;
-  z-index: 10;
-  overflow-y: auto;
   border-radius: 0 10px 10px 0;
+  overflow-y: auto;
+  z-index: 10;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Hidden state */
 .filter-wrapper.hide {
   transform: translateX(-100%);
 }
 
-/* Visible state */
 .filter-wrapper.show {
   transform: translateX(0);
 }
 
-/* Filter inner styles */
 .filters {
   display: flex;
   flex-direction: column;
 }
 
-.filters span, strong {
+.filters span,
+.filters strong {
   padding-bottom: 20px;
 }
 
-.filters button {
-  margin-top: 20px;
-  width: auto;
-  display: inline-block;
+.hover-card {
+  transition: transform 0.3s ease-in-out;
 }
 
-.title {
-  font-size: 18px;
+.hover-card:hover {
+  transform: scale(1.06);
 }
-
-/* Dropdown Cart List */
-.dropdown-toggle {
-  margin-left: auto !important;
-  display: flex !important;
-  margin-top: -42px !important;
-}
-
-.cartList {
-  text-align: center !important;
-}
-
-.cartItem {
-  padding: 15px 0;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 10px;
-  width: 95%;
-  margin: 10px;
-}
-
-.cartItem:last-child {
-  border-bottom: none;
-}
-
-.cartItemImg {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-
-.cartItemDetail {
-  display: flex;
-  padding: 0 20px;
-  flex-direction: column;
-}
-
-/* Cart List */
-.cartCard {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 10px;
-  margin: 30px 10px;
-  padding: 10px;
-}
-
-.products {
-  display: flex;
-  width: 100%;
-  margin: auto;
-  flex-wrap: wrap;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  justify-content: center;
-}
-
-/* Products Card Section */
-
-.productCard {
-  width: 100%;
-  margin: 15px 0;
-  box-sizing: border-box;
-  transition: transform 0.2s ease;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.productName {
-  width: 350px;
-  margin-right: 10px;
-}
-
-.productPrice {
-  width: 100px;
-  margin-right: 10px;
-}
-
-.productCard:hover {
-  transform: scale(1.02);
-}
-
-.productCardImg {
-  height: 200px;
-  object-fit: contain;
-  padding: 10px;
-}
-
 
 .star {
   color: gold;
   font-size: 1.2rem;
   margin-right: 2px;
+}
+
+.sticky-cart-header {
+  position: sticky;
+  top: 82px;
+  /* default desktop navbar height */
+  z-index: 10;
+}
+
+@media (max-width: 992px) {
+  .sticky-cart-header {
+    top: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sticky-cart-header {
+    top: 135px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  /* Centered Toast Container */
+  [class*="Toastify__toast-container--bottom"] {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 10px !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    padding: 0 !important;
+  }
+
+  /* Toast Box */
+  .Toastify__toast {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* Toast body text */
+  .custom-toast-body {
+    width: 100%;
+    text-align: center !important;
+  }
 }

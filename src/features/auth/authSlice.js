@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import AuthService from "./AuthService";
+import { toast } from "react-toastify";
 
 // Login
 export const loginUser = createAsyncThunk(
@@ -37,6 +38,7 @@ const authSlice = createSlice({
     },
     reducers: {
         logout(state) {
+            toast.info("You have been logged out.");
             state.user = null;
             state.token = null;
             localStorage.removeItem("token");
@@ -53,6 +55,9 @@ const authSlice = createSlice({
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 localStorage.setItem("token", action.payload.token);
+                toast.success(
+                    `${action.payload.user.name}, you are logged in!`   // 👈 LOGIN TOAST
+                );
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.isLoading = false;
@@ -66,6 +71,9 @@ const authSlice = createSlice({
             .addCase(signupUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.user = action.payload.user;
+                toast.success(
+                    `Registration successful! Welcome, ${action.payload.user.name}.` // 👈 SIGNUP TOAST
+                );
             })
             .addCase(signupUser.rejected, (state, action) => {
                 state.isLoading = false;

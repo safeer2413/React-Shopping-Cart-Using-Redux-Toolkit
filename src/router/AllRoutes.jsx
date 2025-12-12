@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
 import Login from '../pages/Login'
-import Signup from '../pages/Signup'
-import ProtectedRoute from '../features/auth/ProtectedRoute'
-import Home from '../pages/Home'
 import Cart from '../pages/Cart'
+import Signup from '../pages/Signup'
+import Home from '../pages/Home'
+import ProtectedRoute from '../features/auth/ProtectedRoute'
 
 function AllRouter() {
   return (

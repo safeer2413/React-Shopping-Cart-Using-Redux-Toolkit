@@ -41,7 +41,7 @@ function Header() {
                   {location.pathname !== "/cart" && (
                     <Button
                       variant="outline-light"
-                      className="d-none d-md-block"
+                      className="bg-secondary d-none d-md-block"
                       onClick={() => dispatch(filterToggle())}
                     >
                       <span className="d-flex align-items-center gap-1"><IoFilter /> Filter</span>
@@ -51,13 +51,13 @@ function Header() {
 
               </div>
 
-              {/* LOGOUT BUTTON */}
+              {/* Cart + LOGOUT BUTTON */}
               <div className='d-none d-md-block' >
                 <span className="d-flex align-items-center gap-2">
                   <CartDropdown />
                   <Button
                     variant="outline-light"
-                    className=""
+                    className="bg-danger"
                     onClick={handleLogout}
                   >
                     Logout
@@ -80,13 +80,13 @@ function Header() {
 
               {/* Filter button auto-size */}
               {location.pathname !== "/cart" && (
-                <Button variant="outline-light" onClick={() => dispatch(filterToggle())}>
+                <Button variant="outline-light" className="bg-secondary d-flex align-items-center gap-1" onClick={() => dispatch(filterToggle())}>
                   <IoFilter className="me-1" /> Filter
                 </Button>
               )}
 
               {/* Logout button auto-size */}
-              <Button variant="outline-light" onClick={handleLogout}>
+              <Button variant="outline-light" className="bg-danger" onClick={handleLogout}>
                 Logout
               </Button>
             </div>
